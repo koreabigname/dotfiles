@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOT_FILES=(vimrc zshrc)
+DOT_FILES=(vimrc zshrc tmux.conf)
 
 # Make link
 for dot_file in ${DOT_FILES[@]}
