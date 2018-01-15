@@ -19,6 +19,8 @@ if dein#load_state('~/.vim/bundle')
   "call dein#add('Shougo/neosnippet.vim')
   " スニペット集
   "call dein#add('Shougo/neosnippet-snippets')
+  " 自動補完プラグイン
+  call dein#add('Shougo/neocomplete.vim')
 
   " You can specify revision/branch/tag.
   "call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -40,6 +42,8 @@ endif
 "End dein Scripts-------------------------
 
 "Option-----------------------------------
+" <Leader>プレフィックス設定
+let mapleader = "\<Space>"
 
 " 改行時に自動でインデントを行なう
 set autoindent
@@ -165,3 +169,37 @@ set wrap
 set wrapscan
 
 "End Option-------------------------------
+
+"Key-maps---------------------------------
+" 表示行で移動する
+noremap j gj
+noremap k gk
+
+" 行頭・行末に移動する
+noremap <Leader>h ^
+noremap <Leader>l $
+
+" 保存・終了する
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+
+" タブを移動する
+nnoremap <Leader>t gt
+nnoremap <Leader>T gT
+
+" ウィンドウ間を移動する
+nnoremap <Leader><Tab> <C-w>w
+
+" 検索によるハイライト表示を解除する
+nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+
+" インサートモードから抜ける
+inoremap jj <ESC>
+
+"End Key-maps-----------------------------
+
+"Shougo/neocomplete.vim-------------------
+" 自動補完機能を有効にする
+let g:neocomplete#enable_at_startup = 1
+
+"End Shougo/neocomplete.vim---------------
