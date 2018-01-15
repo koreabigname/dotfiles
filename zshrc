@@ -107,3 +107,23 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# pyenv config warning (20180115)
+# @see https://qiita.com/takuya0301/items/695f42f6904e979f0152
+alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew"
+
+# vim like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes to end of it) 
+# vimライクに入力をできる(コマンドモードや入力モードがある)
+bindkey -v
+
+# command correct edition before each completion attempt
+# コマンドをtypoしたときに聞きなおしてくれる
+setopt correct
+
+# @see http://mollifier.hatenablog.com/entry/20090318/1237302243
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
