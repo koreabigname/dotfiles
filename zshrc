@@ -112,7 +112,7 @@ eval "$(pyenv init -)"
 # @see https://qiita.com/takuya0301/items/695f42f6904e979f0152
 alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew"
 
-# vim like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes to end of it) 
+# vim like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes to end of it)
 # vimライクに入力をできる(コマンドモードや入力モードがある)
 bindkey -v
 
@@ -126,4 +126,3 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-
