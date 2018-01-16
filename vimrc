@@ -21,6 +21,38 @@ if dein#load_state('~/.vim/bundle')
   "call dein#add('Shougo/neosnippet-snippets')
   " 自動補完プラグイン
   call dein#add('Shougo/neocomplete.vim')
+  " ツリー型エクスプローラ
+  call dein#add('scrooloose/nerdtree')
+  " NERDTreeを共有
+  call dein#add('jistr/vim-nerdtree-tabs')
+  " gitファイル変更時にNERDTreeアイコン表示
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
+  " gitファイル変更時にVim行番号に+/-表示
+  call dein#add('airblade/vim-gitgutter')
+  " ステータスバーやタブバーをカスタマイズ
+  call dein#add('vim-airline/vim-airline')
+  " ファイル末尾の余分なスペースをハイライト表示
+  call dein#add('bronson/vim-trailing-whitespace')
+  " インデントの深さを視覚表示
+  call dein#add('Yggdroot/indentLine')
+  " プロジェクト内のファイルやバッファ、履歴からファイルを検索
+  call dein#add('ctrlpvim/ctrlp.vim')
+  " ソースコードを実行と結果表示
+  call dein#add('thinca/vim-quickrun')
+  " ドキュメントコメントの追加・削除
+  call dein#add('tyru/caw.vim')
+  " カーソル下のURLをブラウザで開く、単語検索
+  call dein#add('tyru/open-browser.vim')
+  " j/k移動速度アップ
+  call dein#add('rhysd/accelerated-jk')
+  " vim-airlineにgitブランチ情報を表示
+  call dein#add('tpope/vim-fugitive')
+  " 自動補完
+  call dein#add('tpope/vim-endwise')
+  " カッコを自動で閉じる
+  call dein#add('Townk/vim-autoclose')
+  " カレントディレクトリのファイルなど一覧表示と操作
+  call dein#add('Shougo/unite.vim')
 
   " You can specify revision/branch/tag.
   "call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -203,3 +235,96 @@ inoremap jj <ESC>
 let g:neocomplete#enable_at_startup = 1
 
 "End Shougo/neocomplete.vim---------------
+
+"scrooloose/nerdtree----------------------
+" 不可視ファイルを表示する
+let NERDTreeShowHidden = 1
+
+" ツリーと編集領域を移動する
+nmap <Leader><Tab> <C-w>w
+
+" Ctrl+Nで起動する
+"nnoremap <C-n> :NERDTreeToggle<CR>
+
+"End scrooloose/nerdtree-----------------
+"
+"jistr/vim-nerdtree-tabs-----------------
+" ファイルが指定されていなければNERD treeを有効にする
+if argc() == 0
+  let g:nerdtree_tabs_open_on_console_startup = 1
+end
+
+" Ctrl+Nで起動する
+nnoremap <C-n> :NERDTreeTabsToggle<CR>
+
+"End jistr/vim-nerdtree-tabs-------------
+
+"vim-airline/vim-airline-----------------
+" Powerline系フォントを利用する
+let g:airline_powerline_fonts = 1
+
+" タブバーのカスタマイズを有効にする
+let g:airline#extensions#tabline#enabled = 1
+
+" タブバーの右領域を非表示にする
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#show_close_button = 0
+
+"End vim-airline/vim-airline-------------
+
+"bronson/vim-trailing-whitespace---------
+" ファイル保存時に余分なスペースを削除する
+autocmd BufWritePre * :FixWhitespace
+
+"End bronson/vim-trailing-whitespace-----
+
+"ctrlpvim/ctrlp.vim----------------------
+" 検索モードを開く
+nmap <Leader>f :CtrlP<CR>
+
+"End ctrlpvim/ctrlp.vim------------------
+
+"thinca/vim-quickrun---------------------
+" エディタの分割方向を設定する
+set splitbelow
+set splitright
+
+"End thinca/vim-quickrun-----------------
+
+"tyru/caw--------------------------------
+" コメントの追加・削除を行なう
+nmap <Leader>/ <Plug>(caw:zeropos:toggle)
+vmap <Leader>/ <Plug>(caw:zeropos:toggle)
+
+"End tyru/caw----------------------------
+
+"tyru/open-browser-----------------------
+" カーソル下のURLや単語をブラウザで開く
+nmap <Leader>b <Plug>(openbrowser-smart-search)
+vmap <Leader>b <Plug>(openbrowser-smart-search)
+
+"End tyru/open-browser-------------------
+
+"rhysd/accelerated-jk--------------------
+" j/kによる移動を速くする
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
+
+"End rhysd/accelerated-jk----------------
+
+"tpope/vim-fugitive----------------------
+" ブランチ情報を表示する
+let g:airline#extensions#branch#enabled = 1
+
+"End tpope/vim-fugitive------------------
+
+"Shougo/unite.vim------------------------
+nnoremap <leader>f :<C-u>Unite file<CR>
+nnoremap <leader>r :<C-u>Unite file_rec<CR>
+nnoremap <leader>b :<C-u>Unite buffer<CR>
+nnoremap <leader>g :<C-u>Unite grep<CR>
+nnoremap <leader>a :<C-u>UniteBookmarkAdd<CR>
+nnoremap <leader>m :<C-u>Unite bookmark<CR>
+
+"End Shougo/unite.vim--------------------
