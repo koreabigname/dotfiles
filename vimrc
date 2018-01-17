@@ -281,7 +281,7 @@ autocmd BufWritePre * :FixWhitespace
 
 "ctrlpvim/ctrlp.vim----------------------
 " 検索モードを開く
-nmap <Leader>f :CtrlP<CR>
+nmap <Leader>F :CtrlP<CR>
 
 "End ctrlpvim/ctrlp.vim------------------
 
